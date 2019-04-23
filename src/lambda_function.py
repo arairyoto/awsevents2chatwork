@@ -6,7 +6,7 @@ from lib.flatten_dict import flatten
 ENDPOINT = os.getenv('ENDPOINT')
 ROOMID = os.getenv('ROOMID')
 APIKEY = os.getenv('APIKEY')
-FORMAT = os.getenv('FORMAT')
+FORMAT = os.getenv('FORMAT').encode().decode('unicode_escape')
 
 def handler(event, context):
     """
