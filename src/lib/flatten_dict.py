@@ -20,7 +20,6 @@ def flatten(d, reducer=None):
     """
     flatten_dict = {}
     def loop(d, tupled_key=()):
-        print(tupled_key)
         if type(d) is dict:
             for key, value in d.items():
                 updated_tupled_key = tupled_key + (key,)
