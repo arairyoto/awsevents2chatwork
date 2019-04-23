@@ -18,7 +18,7 @@ Parameters:
     Description: Event Format String
 
 Resources:
-  ReturnWordApp:
+  EventsToChatworkApp:
     Type: AWS::Serverless::Function
     Properties:
       Description: It is a Python3 application sending formatted AWS Events to Chatwork.
