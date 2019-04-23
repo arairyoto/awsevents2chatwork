@@ -1,0 +1,35 @@
+AWSTemplateFormatVersion : '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: It is a Python3 application sending formatted AWS Events to Chatwork.
+
+Parameters:
+  ENDPOINT:
+    Type: String
+    Default: https://api.chatwork.com/v2
+    Description: Chatwork API Endpoint
+  ROOMID:
+    Type: String
+    Description: Chatwork RoomId
+  APIKEY:
+    Type: String
+    Description: Chatwork ApiKey
+  FORMAT:
+    Type: String
+    Description: Event Format String
+
+Resources:
+  ReturnWordApp:
+    Type: AWS::Serverless::Function
+    Properties:
+      Description: It is a Python3 application sending formatted AWS Events to Chatwork.
+      Handler: lambda_function.handler
+      Runtime: python3.6
+      MemorySize: 128
+      Timeout: 30
+      CodeUri: app.zip
+      Environment:
+        Variables:
+          ENDPOINT: !Ref ENDPOINT
+          ROOMID: !Ref ROOMID
+          APIKEY: !Ref APIKEY
+          FORMAT: !Ref FORMAT
